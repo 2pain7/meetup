@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="844" Width="450">
     <Grid>
-        <TabControl x:Name="tabControl">
-            <TabItem Header="Начало">
-                <Grid Background="#FFE5E5E5">
+        <TabControl x:Name="tabControl" >
+            <TabItem Header="Начало" Background="LightBlue" Foreground="DarkBlue">
+                <Grid Background="#80CCCC">
                     <TextBlock  HorizontalAlignment="Left" Margin="50,44,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" FontSize="20"/>
                     <TextBlock  HorizontalAlignment="Left" Margin="50,137,0,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Top" FontSize="20"/>
                     <TextBox Name="name" HorizontalAlignment="Left" Margin="50,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="331" Height="42" FontSize="24"/>
@@ -20,24 +20,34 @@
                     <TextBlock  HorizontalAlignment="Left" Margin="50,336,0,0" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" FontSize="20"/>
                     <TextBox x:Name="content" HorizontalAlignment="Left" Margin="50,375,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="333" Height="139" FontSize="20" AcceptsReturn="True"/>
                     <TextBlock  HorizontalAlignment="Left" Margin="52,526,0,0" TextWrapping="Wrap" Text="Изображение" VerticalAlignment="Top" FontSize="20"/>
-                    <Button x:Name="update" Panel.ZIndex="1" Content="Загрузить" Visibility="Visible" HorizontalAlignment="Center" Margin="0,631,0,0" VerticalAlignment="Top" Height="32" Width="80" Click="Button_Click_1"/>
-                    <Button x:Name="delete" Panel.ZIndex="1" Content="Удалить" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,631,0,0"  VerticalAlignment="Top" Height="32" Width="80" Click="delete_Click_1"/>
-                    <Image x:Name="img1" Panel.ZIndex="0" HorizontalAlignment="Left" Height="155" Margin="56,569,0,0" VerticalAlignment="Top" Width="328">
+                    <Button x:Name="update" Background="Transparent" BorderThickness="0"  Foreground="DarkBlue" FontWeight ="Bold"  Panel.ZIndex="1" Content="Загрузить" Visibility="Visible" HorizontalAlignment="Center" Margin="0,631,0,0" VerticalAlignment="Top" Height="32" Width="80" Click="Button_Click_1"/>
+                    <Button x:Name="delete" Background="Transparent" BorderThickness="0"  Foreground="White" FontWeight ="Bold" Panel.ZIndex="1" Content="Удалить" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,631,0,0"  VerticalAlignment="Top" Height="32" Width="80" Click="delete_Click_1"/>
+                    <Image x:Name="img1" Panel.ZIndex="0" HorizontalAlignment="Left" Height="155" Margin="89,569,0,0" VerticalAlignment="Top" Width="256">
                     </Image>
-                    <Button Content="Далее" HorizontalAlignment="Left" Margin="306,737,0,0" VerticalAlignment="Top" Height="42" Width="108" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
+                    <Button Background="LightBlue" BorderThickness="0" FontWeight ="Bold"  Content="Далее"  Foreground="DarkBlue"  HorizontalAlignment="Left" Margin="306,737,0,0" VerticalAlignment="Top" Height="42" Width="108" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
                     </Button>
                 </Grid>
             </TabItem>
-            <TabItem Header="Программа">
-                <Grid Background="#FFE5E5E5">
+            <TabItem Header="Программа" Background="LightBlue" Foreground="DarkBlue">
+                <Grid Background="#80CCCC">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="38*"/>
                         <ColumnDefinition Width="407*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="300,24,0,0" VerticalAlignment="Top" Height="41" Width="81" Grid.Column="1"/>
-                    <Button Content="Отменить" HorizontalAlignment="Left" Margin="300,90,0,0" VerticalAlignment="Top" Height="41" Width="81" Grid.Column="1"/>
-                    <Button Content="Сохранить" HorizontalAlignment="Left" Margin="300,154,0,0" VerticalAlignment="Top" Height="42" Width="81" Grid.Column="1"/>
-                    <local:UserControl1 Grid.ColumnSpan="2" Margin="18,41,124,650"></local:UserControl1>
+                    <StackPanel x:Name="stack" Margin="4,24,121,44" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Background="LightBlue">
+                        <StackPanel.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </StackPanel.RenderTransform>
+                    </StackPanel>
+                    <Button Background="LightBlue" BorderThickness="0" FontWeight ="Bold"  Foreground="DarkBlue" Content="Добавить" HorizontalAlignment="Left" Margin="300,24,0,0" VerticalAlignment="Top" Height="41" Width="81" Grid.Column="1" Click="Button_Click_2"/>
+                    <Button Background="LightBlue" BorderThickness="0" FontWeight ="Bold"  Foreground="DarkBlue" Content="Отменить" HorizontalAlignment="Left" Margin="300,90,0,0" VerticalAlignment="Top" Height="41" Width="81" Grid.Column="1" Click="Button_Click_3"/>
+                    <Button Background="LightBlue" BorderThickness="0" FontWeight ="Bold"    Foreground="DarkBlue" Content="Сохранить" HorizontalAlignment="Left" Margin="300,154,0,0" VerticalAlignment="Top" Height="42" Width="81" Grid.Column="1" Click="Button_Click_4"/>
+                    <Button Background="LightBlue" BorderThickness="0" FontWeight ="Bold"    Foreground="DarkBlue" Content="Назад" HorizontalAlignment="Left" Margin="300,217,0,0" VerticalAlignment="Top" Height="41" Width="81" RenderTransformOrigin="0.5,0.5" Click="Button_Click_5" Grid.Column="1"/>
                 </Grid>
             </TabItem>
         </TabControl>

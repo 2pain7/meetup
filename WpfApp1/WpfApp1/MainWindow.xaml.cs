@@ -45,5 +45,72 @@ namespace WpfApp1
             update.Visibility = Visibility.Visible;
             delete.Visibility = Visibility.Hidden;
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            StackPanel stackPanel = new StackPanel();
+
+            TextBox textBox1 = new TextBox();
+            TextBox textBox2 = new TextBox();
+            TextBlock textBlock1 = new TextBlock {
+                FontWeight = FontWeights.Bold
+            };
+            TextBlock textBlock2 = new TextBlock {
+                FontWeight = FontWeights.Bold
+            };
+
+            textBlock1.Text = "Начало";
+            textBlock2.Text = "Конец";
+
+            stackPanel.Children.Add(textBlock1);
+            stackPanel.Children.Add(textBox1);
+            stackPanel.Children.Add(textBlock2);
+            stackPanel.Children.Add(textBox2);
+            
+
+            Button deleteButton = new Button {
+                Background = new SolidColorBrush(Colors.LightBlue),
+                BorderThickness = new Thickness(0),
+                FontWeight = FontWeights.Bold,
+                Foreground = new SolidColorBrush(Colors.DarkBlue),
+            };
+            deleteButton.Content = "Удалить";
+            deleteButton.Click += (s, ev) => { stack.Children.Remove(stackPanel); };
+            stackPanel.Children.Add(deleteButton);
+
+            stack.Children.Add(stackPanel);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            name.Text = null;
+            place.Text = null;
+            date.Text = null;
+            content.Text = null;
+            img1.Source = null;
+            stack.Children.Clear();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            string a = name.Text;
+            string b = place.Text;
+            string c = date.Text;
+            string d = content.Text;
+          
+            if (string.IsNullOrWhiteSpace(a) || string.IsNullOrWhiteSpace(b) || string.IsNullOrWhiteSpace(c) || string.IsNullOrWhiteSpace(d))
+            {
+                 MessageBox.Show("Заполните все поля!","Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBox.Show($" Введено: \n Название: {a} \n Место: {b} \n Дата: {c} \n Описание: {d}...", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            tabControl.SelectedIndex = 0;
+        }
     }
 }
